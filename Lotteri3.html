@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            font-size:100%;
+            color:grey;
+        }
+    </style>
+</head>
+<body>
+    <input id="inpAntLodd" type="number" placeholder="Antall solgte lodd">
+    <br><br>
+    <button id="btnKnapp1">Trekning 1</button>
+    <button id="btnKnapp2">Trekning 2</button>
+    <button id="btnKnapp3">Trekning 3</button>
+    <button id="btnKnapp4">Trekning 4</button>
+    <br> 
+    <h1><span id="vinner1"></span><span id="vinner2"></span><span id="vinner3"></span><span id="vinner4"></span></h1>
+
+    <audio id="lyd" src="Applaus1.mp3"></audio>
+
+    <script>
+        var lyd = document.getElementById("lyd");
+        var btnKnapp1 = document.getElementById("btnKnapp1");
+        var btnKnapp2 = document.getElementById("btnKnapp2");
+        var btnKnapp3 = document.getElementById("btnKnapp3");
+        var btnKnapp4 = document.getElementById("btnKnapp4");
+        var vinner1 = document.getElementById("vinner1");
+        var vinner2 = document.getElementById("vinner2");
+        var vinner3 = document.getElementById("vinner3");
+        var vinner4 = document.getElementById("vinner4");
+        var inpAntLodd = document.getElementById("inpAntLodd");
+        var antallLodd = -1;
+
+        var spinnVinner1 = vinner1.animate (
+            [{color:"white", fontSize:"50%"},
+            {color:"red", fontSize:"550%"},
+            {color:"grey", fontSize:"100%"}
+            ],
+            {duration: 6000}
+        );
+        var spinnVinner2 = vinner2.animate (
+            [{color:"white", fontSize:"50%"},
+            {color:"red", fontSize:"550%"},
+            {color:"grey", fontSize:"100%"}
+            ],
+            {duration: 6000}
+        );
+
+        var spinnVinner3 = vinner3.animate (
+            [{color:"white", fontSize:"50%"},
+            {color:"red", fontSize:"550%"},
+            {color:"grey", fontSize:"100%"}
+            ],
+            {duration: 6000}
+        );
+
+        var spinnVinner4 = vinner4.animate (
+            [{color:"white", fontSize:"50%"},
+            {color:"red", fontSize:"550%"},
+            {color:"grey", fontSize:"100%"}
+            ],
+            {duration: 6000}
+        );
+
+
+        inpAntLodd.oninput = function () {
+            antallLodd = Number(inpAntLodd.value);
+        }
+
+        btnKnapp1.onclick = function () {
+            spinnVinner1.play();
+            lyd.play();
+            vinner1.innerHTML = String(Math.ceil(Math.random()*antallLodd));
+        }
+        
+        btnKnapp2.onclick = function () {
+            spinnVinner2.play();
+
+            vinner2.innerHTML = " " + Math.ceil(Math.random()*antallLodd);
+        }
+        
+        btnKnapp3.onclick = function () {
+            spinnVinner3.play();
+
+            vinner3.innerHTML = " " + Math.ceil(Math.random()*antallLodd);
+        }
+
+        btnKnapp4.onclick = function () {
+            spinnVinner4.play();
+
+            vinner4.innerHTML = " " + Math.ceil(Math.random()*antallLodd);
+        }
+    </script>
+</body>
+</html>
